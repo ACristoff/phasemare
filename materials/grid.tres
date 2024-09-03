@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cn1gsy15bkaff"]
 
-[ext_resource type="Texture2D" uid="uid://ivvpsi314b34" path="res://textures/grid.jpg" id="1_57ppx"]
+[ext_resource type="Texture2D" uid="uid://bv01jiwwtro2r" path="res://textures/prototype_grid/Dark/texture_01.png" id="1_p2n3a"]
 
 [sub_resource type="Shader" id="Shader_y046h"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.1.dev4's StandardMaterial3D.
@@ -74,5 +74,6 @@ shader_parameter/uv1_scale = Vector3(0.5, 0.5, 0.5)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/texture_albedo = ExtResource("1_57ppx")
-shader_parameter/texture_roughness = ExtResource("1_57ppx")
+shader_parameter/texture_albedo = ExtResource("1_p2n3a")
+shader_parameter/texture_metallic = ExtResource("1_p2n3a")
+shader_parameter/texture_roughness = ExtResource("1_p2n3a")

@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://oxn41876reqa"
+path="res://.godot/imported/_debug.map-e3b48943d90f93bd30f75a2cc9952b90.tres"
+
+[deps]
+
+source_file="res://levels/trenchbroom/_debug.map"
+dest_files=["res://.godot/imported/_debug.map-e3b48943d90f93bd30f75a2cc9952b90.tres"]
+
+[params]
+
