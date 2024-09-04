@@ -7,4 +7,5 @@ environment = ExtResource("1_cvy6j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.905183, -0.346446, -0.246207, 0, -0.579281, 0.815128, -0.425021, -0.73784, -0.524356, 0, 0, 0)
+visible = false
 shadow_enabled = true

@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://duefarcicjuat"
+path="res://.godot/imported/_debug.5.map-681270984c9e0c12d8ba9feda1454418.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/autosave/_debug.5.map"
+dest_files=["res://.godot/imported/_debug.5.map-681270984c9e0c12d8ba9feda1454418.tres"]
+
+[params]
+
