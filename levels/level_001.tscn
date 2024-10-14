@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=4 uid="uid://b1yleqbb8tc7x"]
+[gd_scene load_steps=85 format=4 uid="uid://b1yleqbb8tc7x"]
 
 [ext_resource type="PackedScene" uid="uid://btv0a42cgxt8g" path="res://levels/WE_test.tscn" id="1_db21n"]
 [ext_resource type="Material" uid="uid://cn1gsy15bkaff" path="res://materials/grid.tres" id="2_x5xie"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://5jpvudmpjfhe" path="res://textures/Red/texture_01.png" id="7_jtiem"]
 [ext_resource type="Texture2D" uid="uid://crwgw4ealxoso" path="res://textures/Orange/texture_01.png" id="8_v5mg2"]
 [ext_resource type="Texture2D" uid="uid://c68gidfpdn0du" path="res://textures/Green/texture_01.png" id="9_xb2va"]
+[ext_resource type="PackedScene" uid="uid://b2phyboncadsk" path="res://environment/computer/computer.tscn" id="12_24gqb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wltbf"]
 albedo_texture = ExtResource("7_jtiem")
@@ -670,3 +671,9 @@ shape = SubResource("ConcavePolygonShape3D_j6kcl")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(-0.162114, 0.985648, 0.0470955, 0.986165, 0.163503, -0.0272885, -0.034597, 0.0420202, -0.998518, 5.21568, 5.14876, -9.73874)
+
+[node name="Computer" parent="." instance=ExtResource("12_24gqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21394, 4.85352, -9.34883)
+
+[node name="Computer2" parent="." instance=ExtResource("12_24gqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24112, 1.81596, -12.326)

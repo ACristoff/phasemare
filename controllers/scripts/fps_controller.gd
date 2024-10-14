@@ -6,6 +6,9 @@ extends CharacterBody3D
 @export var TILT_LOWER_LIMIT := deg_to_rad(-90.0)
 @export var TILT_UPPER_LIMIT := deg_to_rad(90.0)
 @export var CAMERA_CONTROLLER : Camera3D
+@export var interact_distance : float = 2
+
+var state = 'walk'
 
 var _mouse_input : bool = false
 var _rotation_input : float
@@ -13,6 +16,8 @@ var _tilt_input : float
 var _mouse_rotation : Vector3
 var _player_rotation : Vector3
 var _camera_rotation : Vector3
+
+@onready var camera = $CameraController/Camera3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -77,5 +82,21 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
 	move_and_slide()
+	interact_cast()
+
+func interact() -> void:
+	pass
+
+func interact_cast() -> void:
+	var space_state = camera.get_world_3d().direct_space_state
+	var screen_center = get_viewport().size / 2
+	var origin = camera.project_ray_origin(screen_center)
+	var end = origin + camera.project_ray_normal(screen_center) * interact_distance
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_bodies = true
+	#prints(space_state, screen_center, origin, end)
+	var result = space_state.intersect_ray(query)
+	var current_cast_result = result.get("collider")
+	prints(current_cast_result)
+	pass

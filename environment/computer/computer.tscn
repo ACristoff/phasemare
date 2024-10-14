@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2phyboncadsk"]
+
+[ext_resource type="Script" path="res://environment/computer/computer.gd" id="1_48bi6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5eklt"]
+size = Vector3(1.0664, 0.654663, 0.260132)
+
+[node name="Computer" type="Node3D" groups=["interactable"]]
+script = ExtResource("1_48bi6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(1, 0.575684, 0.135254)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_5eklt")
