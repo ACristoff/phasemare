@@ -92,8 +92,8 @@ func _physics_process(delta):
 	interact_cast()
 
 func interact() -> void:
-	if current_interactable != null:
-		print(current_interactable)
+	if current_interactable != null and current_interactable.has_user_signal("interacted"):
+		current_interactable.emit_signal("interacted")
 		pass
 	pass
 
@@ -104,10 +104,13 @@ func interact_cast() -> void:
 	var end = origin + camera.project_ray_normal(screen_center) * interact_distance
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_bodies = true
-	#prints(space_state, screen_center, origin, end)
 	var result = space_state.intersect_ray(query)
 	var current_cast_result = result.get("collider")
-	#if current_cast_result != null:
-	current_interactable = current_cast_result
-	#prints(current_cast_result)
-	pass
+	##TODO Emit unfocus when current changes
+	if current_cast_result != current_interactable:
+		#current_interactable.emit_signal("focused")
+		if current_interactable != null && current_interactable.has_user_signal("unfocused"):
+			current_interactable.emit_signal("unfocused")
+		current_interactable = current_cast_result
+		if current_interactable != null && current_interactable.has_user_signal("focused"):
+			current_interactable.emit_signal("focused")
