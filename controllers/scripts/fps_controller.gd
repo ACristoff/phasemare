@@ -16,6 +16,7 @@ var _tilt_input : float
 var _mouse_rotation : Vector3
 var _player_rotation : Vector3
 var _camera_rotation : Vector3
+var current_interactable = null
 
 @onready var camera = $CameraController/Camera3D
 
@@ -33,7 +34,12 @@ func _input(event):
 	
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
-		
+	elif event.is_action_pressed("interact"):
+		#print('beebo')
+		interact()
+		pass
+
+
 func _update_camera(delta):
 	
 	# Rotates camera using euler rotation
@@ -86,6 +92,9 @@ func _physics_process(delta):
 	interact_cast()
 
 func interact() -> void:
+	if current_interactable != null:
+		print(current_interactable)
+		pass
 	pass
 
 func interact_cast() -> void:
@@ -98,5 +107,7 @@ func interact_cast() -> void:
 	#prints(space_state, screen_center, origin, end)
 	var result = space_state.intersect_ray(query)
 	var current_cast_result = result.get("collider")
-	prints(current_cast_result)
+	#if current_cast_result != null:
+	current_interactable = current_cast_result
+	#prints(current_cast_result)
 	pass
