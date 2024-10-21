@@ -19,3 +19,6 @@ shape = SubResource("BoxShape3D_5eklt")
 
 [node name="InteractionComponent" type="Node" parent="StaticBody3D"]
 script = ExtResource("2_36iv7")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

@@ -5,7 +5,6 @@ var parent
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	parent = get_parent()
-	#print(parent)
 	connect_parent()
 	pass # Replace with function body.
 
@@ -14,15 +13,15 @@ func _process(delta):
 	pass
 
 func in_range():
-	print(parent)
+	#print(parent)
 	pass
 
 func not_in_range():
-	print("not in focus")
+	#print("not in focus")
 	pass
 
 func on_interact():
-	print(parent.name)
+	#print(parent.name)
 	pass
 
 func connect_parent():

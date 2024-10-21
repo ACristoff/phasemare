@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name PLAYER
+
 @export var SPEED : float = 5.0
 @export var JUMP_VELOCITY : float = 4.5
 @export var MOUSE_SENSITIVITY : float = 0.5
@@ -7,6 +9,8 @@ extends CharacterBody3D
 @export var TILT_UPPER_LIMIT := deg_to_rad(90.0)
 @export var CAMERA_CONTROLLER : Camera3D
 @export var interact_distance : float = 2
+
+enum PLAYER_STATES {WALK, INTERACTING, CROUCH}
 
 var state = 'walk'
 
@@ -35,13 +39,11 @@ func _input(event):
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
 	elif event.is_action_pressed("interact"):
-		#print('beebo')
 		interact()
 		pass
 
 
 func _update_camera(delta):
-	
 	# Rotates camera using euler rotation
 	_mouse_rotation.x += _tilt_input * delta
 	_mouse_rotation.x = clamp(_mouse_rotation.x, TILT_LOWER_LIMIT, TILT_UPPER_LIMIT)
@@ -49,17 +51,16 @@ func _update_camera(delta):
 	
 	_player_rotation = Vector3(0.0,_mouse_rotation.y,0.0)
 	_camera_rotation = Vector3(_mouse_rotation.x,0.0,0.0)
-
+	
 	CAMERA_CONTROLLER.transform.basis = Basis.from_euler(_camera_rotation)
 	global_transform.basis = Basis.from_euler(_player_rotation)
 	
 	CAMERA_CONTROLLER.rotation.z = 0.0
-
+	
 	_rotation_input = 0.0
 	_tilt_input = 0.0
-	
-func _ready():
 
+func _ready():
 	# Get mouse input
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -90,6 +91,10 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_and_slide()
 	interact_cast()
+
+##TODO SET STATE TO INTERACTED AND WALK
+func set_state():
+	pass
 
 func interact() -> void:
 	if current_interactable != null and current_interactable.has_user_signal("interacted"):

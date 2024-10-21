@@ -452,7 +452,7 @@ data = PackedVector3Array(-4, 1, 1, 4, -1, 1, -4, -1, 1, -4, 1, -1, -4, -1, -1, 
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_db21n")]
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("4_liofc")]
+[node name="CharacterBody3D" parent="." groups=["player"] instance=ExtResource("4_liofc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2797, 1.30697, -8.72535)
 SPEED = 4.0
 
