@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3ffql15mo0aj"]
+[gd_scene load_steps=7 format=3 uid="uid://c3ffql15mo0aj"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_pgc1p"]
 [ext_resource type="Material" uid="uid://b4gwd5h7ixvct" path="res://materials/player.tres" id="2_gldw4"]
 [ext_resource type="Script" path="res://controllers/state_machine.gd" id="3_2cwwp"]
+[ext_resource type="Script" path="res://controllers/idle_player_state.gd" id="4_en7yo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u6tj1"]
 radius = 0.4
@@ -37,3 +38,10 @@ enable_shadows = true
 
 [node name="PlayerStateMachine" type="Node" parent="."]
 script = ExtResource("3_2cwwp")
+
+[node name="IdlePlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("4_en7yo")
+
+[node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine"]
+
+[node name="InteractingPlayerState" type="Node" parent="PlayerStateMachine"]
