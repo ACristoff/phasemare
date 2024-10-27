@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2phyboncadsk"]
+[gd_scene load_steps=5 format=3 uid="uid://b2phyboncadsk"]
 
 [ext_resource type="Script" path="res://environment/computer/computer.gd" id="1_48bi6"]
 [ext_resource type="Script" path="res://scripts/interaction_component.gd" id="2_36iv7"]
@@ -6,11 +6,16 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_5eklt"]
 size = Vector3(1.0664, 0.654663, 0.260132)
 
+[sub_resource type="BoxMesh" id="BoxMesh_6x2ib"]
+lightmap_size_hint = Vector2i(9, 16)
+size = Vector3(1, 0.58, 0.14)
+
 [node name="Computer" type="Node3D" groups=["interactable"]]
 script = ExtResource("1_48bi6")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(1, 0.575684, 0.135254)
+visible = false
+size = Vector3(1, 0.58, 0.14)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -22,3 +27,9 @@ script = ExtResource("2_36iv7")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6x2ib")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+render_target_update_mode = 4

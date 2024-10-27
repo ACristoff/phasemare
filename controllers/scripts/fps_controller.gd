@@ -35,7 +35,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		_tilt_input = -event.relative.y * MOUSE_SENSITIVITY
 		
 func _input(event):
-	
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
 	elif event.is_action_pressed("interact"):
