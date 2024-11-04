@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3ffql15mo0aj"]
+[gd_scene load_steps=9 format=3 uid="uid://c3ffql15mo0aj"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_pgc1p"]
 [ext_resource type="Material" uid="uid://b4gwd5h7ixvct" path="res://materials/player.tres" id="2_gldw4"]
 [ext_resource type="Script" path="res://controllers/state_machine.gd" id="3_2cwwp"]
 [ext_resource type="Script" path="res://controllers/idle_player_state.gd" id="4_en7yo"]
 [ext_resource type="Script" path="res://scripts/reticle.gd" id="5_w0wmy"]
+[ext_resource type="Theme" uid="uid://cjn82epl50x4a" path="res://ui/themes/debug.tres" id="6_8l8dc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u6tj1"]
 radius = 0.4
@@ -90,3 +91,18 @@ width = 2.0
 visible = false
 points = PackedVector2Array(-5, 0, -15, 0)
 width = 2.0
+
+[node name="DebugPanel" type="PanelContainer" parent="UserInterface"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 50.0
+theme = ExtResource("6_8l8dc")
+
+[node name="MarginContainer" type="MarginContainer" parent="UserInterface/DebugPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer"]
+layout_mode = 2
